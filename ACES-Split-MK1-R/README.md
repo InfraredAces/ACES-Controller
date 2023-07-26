@@ -14,28 +14,41 @@ jobs:
 
 # ACES Split MK1
 
-## Changes from default Pico pinout.
+## Difference from default Pico pinout 
 
-- Remove Turbo from GPIO pin 14
-- Remove Turbo LED from GPIO pin 15
-- Add SOCD2 to GPIO pin 14
-- Add SOCD1 to GPIO pin 15
+### Changes made in Main Pin Definition section
+
+- Remove Turbo from GPIO pin 14, Set to -1
+- Remove Turbo LED from GPIO pin 15, Set to -1
+- Set PIN_SLIDER_LS to GPIO pin 26
+- Set PIN_SLIDER_RS to GPIO pin 27
+- Set PIN_SLIDER_SOCD_ONE to GPIO pin 15
+- Set PIN_SLIDER_SOCD_TWO to GPIO pin 14
+
+### Changes made in Add On configuration
+
 - Add Extra Button to GPIO pin 22
-- Add RS to GPIO pin 26
-- Add LS to GPIO pin 27
 
 ## Changes to default Pico Add On Configuration
 
 ### SOCD Slider
 
-- Add Enable definition (Disabled for time being)
+- Add Enable definition
 
 ```
-#define SLIDER_SOCD_ENABLED 0
+#define SLIDER_SOCD_ENABLED 1
 ```
 
 - Set SLIDER_SOCD_SLOT_ONE to SOCD_MODE_NEUTRAL
-- Set SLIDER_SOCD_SLOT_TWO to SOCD_MODE_SECOND_INPUT_PRIORITY
+- Set SLIDER_SOCD_SLOT_TWO to SOCD_MODE_UP_PRIORITY
+
+## Joystick Selection Slider
+
+- Add Enable definition
+
+```
+#define JSLIDER_ENABLED 1
+```
 
 ### RGB LED
 - Set LED_BRIGHTNESS_MAXIMUM to 80
@@ -68,7 +81,3 @@ Waiting to add Extra Button to RGB LED chain
 
 - Change EXTRA_BUTTON_MASK to GAMEPAD_MASK_DU
 - Change EXTRA_BUTTON_PIN to 22
-
-### Hotkey Action Mapping
-- Set HOTKEY_F2_LEFT_ACTION to HOTKEY_SOCD_FIRST_INPUT
-- Set HOTKEY_F2_RIGHT_ACTION to HOTKEY_SOCD_LAST_INPUT
