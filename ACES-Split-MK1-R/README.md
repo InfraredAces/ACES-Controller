@@ -7,6 +7,7 @@
 In the root of GP2040-CE project, run the following commands
 
 ```
+git submodule update --init
 export GP2040_BOARDCONFIG=ACES-Split-MK1-R
 mkdir build
 cd build
